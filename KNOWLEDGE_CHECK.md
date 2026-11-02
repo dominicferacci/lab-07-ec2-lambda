@@ -14,7 +14,7 @@ Suppose your instance is running and has a public IP address, but `ssh` cannot c
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+In the console, I went to the service EC2, then the page "Instances", and then clicked on the tab "Security" and scrolled down to find the inbound rules that shows which connections your instance's security group lets in. 
 
 ## 2. Lambda: why didn't my function run?
 
@@ -26,7 +26,7 @@ Suppose you uploaded a new book to your bucket, but several minutes later MongoD
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+I first went to the service "Lambda", then the page "Event Functions" where I clicked on the function I am using, and then the "Configuration" tab where it says "Triggers" to see exactly what starts the Lambda function.
 
 ## 3. Lambda: where do I find the error?
 
@@ -38,7 +38,7 @@ Suppose the function did start, but MongoDB still has no document for the book. 
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+In the console, I went to the service "Lambda", then the page "Event Functions" where I clicked on the function I am using, then the "Monitor" tab where I clicked on "View CloudWatch logs", and then looked through the different log events to find the run for 'pg74.txt'.
 
 ## 4. EC2 or Lambda: a backlog or new uploads?
 
@@ -54,4 +54,4 @@ For comparison, typical times in this lab:
 
 **Your answer:**
 
-...
+For Case A, I would use an EC2 instance because I would only need to analyze the 5,000 more books once and then be able to shut it down. So for the one-time backlog, EC2 is simple and cheap, and the few minutes of startup is only paid once. For Case B, I would use a Lambda function since readers upload the books at random times each day. The S3 upload triggers it automatically which would take only around 3 seconds, satisfying the requirement for each book to be analyzed within a minute after each upload. Lastly, Lambda is the right fit here as it would not have to pay for idle time like an EC2, it would only cost money for those few seconds when there is an upload which saves a lot of money.
